@@ -1,3 +1,5 @@
+import datetime
+
 ip_list = []
 
 while True:
@@ -7,7 +9,10 @@ while True:
         break
     ip_list.append(ip)
 
-arquivo = open("ip.txt","w")
+agora = datetime.datetime.now()
+data_hora_formatada = agora.strftime("%d_%m_%Y %H-%M-%S")
+
+arquivo = open(f"{data_hora_formatada}.txt","w")
 for ip in ip_list:
     print(ip)
     arquivo.write(f"{ip}\n")
